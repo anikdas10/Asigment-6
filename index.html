@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment-6</title>
+    <!-- daisy ui -->
+     
+<link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.12/dist/full.min.css" rel="stylesheet" type="text/css" />
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- google fonts -->
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+<!-- fontawesome -->
+ <script src="https://kit.fontawesome.com/8c5e170e61.js" crossorigin="anonymous"></script>
+
+<style>
+    .lato{
+      font-family: "Lato", sans-serif;  
+    }
+</style>
+</head>
+
+<body class="lato">
+    <header class="container mx-auto px-5 md:px-8 lg:px-16 py-10">
+        <nav class="flex items-center justify-between">
+            <div class="flex items-center gap-1 cursor-pointer">
+                <img src="images/logo.webp" alt="">
+                <h2 class="font-bold text-xl md:text-2xl lg:text-3xl">Peddy</h2>
+            </div>
+            <div class="hidden md:block">
+                <ul class="flex items-center gap-4 text-lg opacity-90 ">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="flex items-center gap-4">
+               <i class="fa-regular fa-user  cursor-pointer p-2 border  border-black rounded-full  flex justify-center items-center"></i>
+               <i class="fa-solid fa-bars text-xl md:hidden cursor-pointer"></i>
+            </div>
+        </nav>
+        <!-- text section -->
+        <div class="py-7 space-y-5 flex flex-col justify-center items-center">
+            <p class="text-sm md:text-lg font-semibold opacity-80">Bringing Families Together ❤️‍🔥 
+            </p>
+            <h1 class="text-center font-bold text-2xl md:text-3xl lg:text-5xl">Your Path to Adoption <br>
+                 Starts Here</h1>
+                 <p class="md:w-2/3 text-center mx-auto"> We are encouraging people to begin their journey of adopting a pet. Whether you're looking for a dog, cat, or other companion animal, the platform guides you every step of the way. Start today and find a loving pet that needs a forever home.</p>
+                 <a href="#viewSection" class="btn text-white font-bold bg-[#0E7A81] hover:text-black">View More</a>
+        </div>
+        <!-- image section -->
+        <div class="w-5/6 md:w-3/5  mx-auto">
+            <img src="images/pet.webp" class="w-full object-cover " alt="">
+        </div>
+    </header>
+
+    <!-- main section -->
+     <main class="container mx-auto px-5 md:px-8 lg:px-16 xl:px-24 my-10">
+        <!-- adopt your best friend section -->
+        <section id="viewSection">
+          <div class="space-y-2">
+            <h2 class="font-bold text-xl md:text-2xl text-center">Adopt  Your  Best Friend</h2>
+            <p class="md:w-4/5 lg:w-1/2 text-center mx-auto">Adopt your best friend here.We provides listings of adoptable pets, along with resources and support for new pet owners.</p>
+         </div>
+         <!-- button container -->
+          <div id="btnContainer" class="flex items-center justify-between flex-wrap mt-5 gap-4">
+
+        </div>
+        <!-- Short by price btn -->
+         <div class="flex items-center justify-between my-8">
+            <h2 class="font-bold text-lg md:text-2xl lg:text-3xl">Best Deal For you</h2>
+            <button id="sortByPrice" class="px-4 py-2 bg-[#0E7A81] rounded-md text-white text-lg md:text-xl lg:text-2xl">Sort by Price</button>
+         </div>
+         <!-- loading  -->
+          <div class="flex w-full justify-center mt-5">
+              <span id="postLoader" class="loading loading-spinner loading-lg"></span>
+            </div>
+         <!-- display all data section -->
+          <div id="mainPetsContainer" class="grid grid-cols-10 gap-4 mt-5">
+            <div id="petsContainer" class=" col-span-6 lg:col-span-7 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                
+                
+            </div>
+            <div  class="col-span-4 lg:col-span-3 border rounded-md  p-1">
+                <div id="likedImageContainer" class="grid grid-cols-1 md:grid-cols-2">
+
+                </div>
+
+            </div>
+          </div>
+        </section>
+
+
+          <!-- show modal -->
+           <!-- Open the modal using ID.showModal() method -->
+          <div id="modalBox">
+           
+          </div>
+          <div id="modalBox2">
+            
+            <dialog id="my_modal_1" class="modal">
+                <div class="modal-box">
+                 <div class="flex items-center justify-center flex-col space-y-2">
+                    <img src="images/agreement.png" class="w-16" alt="">
+                    <h2 class="font-bold text-3xl">Congratulations</h2>
+                    <p class="text-lg">Adoption Process is Start For Your Pet</p>
+                     <h1  id="countdownTimer" class="font-extrabold text-6xl"></h1>
+                 </div>
+                 <div class="modal-action">
+                     <form method="dialog">
+                    <button id="close-button" ></button>
+                 </form>
+                    </div>
+                </div>
+            </dialog>
+          </div>
+          
+     </main>
+
+     <!-- footer -->
+      <footer class="bg-black text-white">
+        <div class="container mx-auto px-5 md:px-8 lg:px-16 py-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div>
+                 <div class="flex items-center gap-2">
+                <img src="images/logo.webp" alt="">
+                <h2 class="font-bold text-lg md:text-xl lg:text-2xl text-white">Peddy</h2>
+                </div>
+                <ul class="flex flex-col gap-2 mt-4 opacity-80 text-sm">
+                    <li>
+                      Location: av. Washington 165, NY CA <br> 54003
+                    </li>
+                    <li>
+                      Phone: +31 85 964 47 25   
+                    </li>
+                    <li>
+                        Email: info@yourdomain.com
+                    </li>
+                    <li>
+                        Openings hours: 9.00 AM - 5.00 PM 
+                    </li>
+                    <li class="flex items-center gap-2">
+                      <img src="images/facebook.png" class="w-7" alt="">
+                        <i class="fa-brands fa-x-twitter text-2xl"></i>
+                        <img src="images/youtube.png" class="w-8" alt="">
+                       <img src="images/insta.png" class="w-7" alt="">
+                    </li>
+                </ul>
+              </div>  
+              <div>
+                 <h2 class="font-bold text-lg md:text-xl lg:text-2xl text-white">Useful Links</h2>
+                <ul class="flex flex-col gap-2 mt-4 opacity-80 text-sm">
+                    <li>
+                      <a href="#">Home</a>
+                    </li>
+                    <li>
+                     <a href="#">
+                            About Us
+                    </a>   
+                    </li>
+                    <li>
+                       <a href="#">
+                        Animals
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">Foundation
+                        </a>
+                    </li>
+                    <li >
+                      <a href="#">Contact</a>
+                    </li>
+                </ul>
+              </div>  
+              <div>
+                  <h2 class="font-bold text-lg md:text-xl lg:text-2xl text-white">Drop a Message</h2>
+                  <div class="flex flex-col gap-2 w-3/5">
+                    <input type="email" class="input text-black" placeholder="Enter your Email " />
+                <button class="btn bg-[#0E7A81] text-white font-bold outline-none hover:text-black">Subscribe</button>
+                  </div>
+              </div>  
+            </div>
+        </div>
+      </footer>
+
+      <script src="js/main.js"></script>
+</body>
+</html>
